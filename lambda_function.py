@@ -4,6 +4,7 @@ import json
 import logging
 from custom_encoder import CustomEncoder
 
+# TESTING CI/CD
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
