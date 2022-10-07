@@ -4,16 +4,12 @@ import json
 import logging
 from custom_encoder import CustomEncoder
 
-# TESTING CI/CD
-
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-
 
 dynamodbTableName = 'product-inventory'
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table(dynamodbTableName)
-
 
 getMethod = 'GET'
 postMethod = 'POST'
@@ -61,7 +57,7 @@ def getProduct(productId):
         else:
             return buildResponse(404, {'Message': 'ProductId: %s not found' % productId})
     except:
-        logger.exception('Custom error handling')
+        logger.exception('Something went wrong while getting a product')
 
 
 def getProducts():
@@ -79,7 +75,7 @@ def getProducts():
         }
         return buildResponse(200, body)
     except:
-        logger.exception('Custom error handling')
+        logger.exception('Something went wrong while getting all products')
 
 
 def saveProduct(requestBody):
@@ -92,7 +88,7 @@ def saveProduct(requestBody):
         }
         return buildResponse(200, body)
     except:
-        logger.exception('Custom error handling')
+        logger.exception('Something went wrong while adding a product')
 
 
 def modifyProduct(productId, updateKey, updateValue):
@@ -114,7 +110,7 @@ def modifyProduct(productId, updateKey, updateValue):
         }
         return buildResponse(200, body)
     except:
-        logger.exception('Custom error handling')
+        logger.exception('Something went wrong while modifying a product')
 
 
 def deleteProduct(productId):
@@ -132,7 +128,7 @@ def deleteProduct(productId):
         }
         return buildResponse(200, body)
     except:
-        logger.exception('Custom error handling')
+        logger.exception('Something went wrong while deleting a product')
 
 
 def buildResponse(statusCode, body=None):
