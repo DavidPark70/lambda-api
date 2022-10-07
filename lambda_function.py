@@ -31,7 +31,7 @@ def lambda_handler(event, context):
     elif httpMethod == getMethod and path == productsPath:
         response = getProducts()
     elif httpMethod == postMethod and path == productPath:
-        response = saveProduct(json.loads(event['body']))
+        response = saveProduct(json.loads(event["body"]))
     elif httpMethod == patchMethod and path == productPath:
         requestBody = json.loads(event['body'])
         response = modifyProduct(
