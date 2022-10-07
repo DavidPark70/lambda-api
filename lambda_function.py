@@ -24,7 +24,7 @@ def lambda_handler(event, context):
     logger.info(event)
     httpMethod = event['httpMethod']
     path = event['path']
-    print(httpMethod)
+    print('httpMethod: ' + httpMethod)
     if httpMethod == getMethod and path == healthPath:
         response = buildResponse(200)
     elif httpMethod == getMethod and path == productPath:
