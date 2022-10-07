@@ -22,7 +22,7 @@ productsPath = '/products'
 
 def lambda_handler(event, context):
     logger.info(event)
-    httpMethod = event['httpMethod']
+    httpMethod = event["httpMethod"]
     path = event['path']
     if httpMethod == getMethod and path == healthPath:
         response = buildResponse(200)
